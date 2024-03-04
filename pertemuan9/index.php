@@ -8,6 +8,17 @@ $conn = mysqli_connect("localhost","root","","phpdasar");
 $result = mysqli_query($conn,"SELECT * FROM karyawan");
 
 
+// ambil data (fetch) karyawan dari object result
+// mysqli_fetch_row() // mengembalikan array numerik
+// mysqli_fetch_assoc() // mengembalikan array associative
+// mysqli_fetch_array() // mngembalikan array numerik dan araray associative
+// mysqli_fetch_object()
+
+$karyawan = mysqli_fetch_array($result);
+var_dump($karyawan);
+
+
+
 ?>
 
 
