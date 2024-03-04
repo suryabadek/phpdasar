@@ -1,7 +1,22 @@
 <?php
-require 'functions.php';
+// koneksi ke database
 
-$karyawan = query("SELECT * FROM karyawan");
+$conn = mysqli_connect("localhost","root","","phpdasar");
+
+// ambil dari table karyawan / query data karyawan
+
+$result = mysqli_query($conn,"SELECT * FROM karyawan");
+
+
+// ambil data (fetch) karyawan dari object result
+// mysqli_fetch_row() // mengembalikan array numerik
+// mysqli_fetch_assoc() // mengembalikan array associative
+// mysqli_fetch_array() // mngembalikan array numerik dan araray associative
+// mysqli_fetch_object()
+
+// while( $karyawan = mysqli_fetch_assoc($result)){
+// var_dump($karyawan);
+// }
 
 
 ?>
@@ -32,7 +47,7 @@ $karyawan = query("SELECT * FROM karyawan");
 </tr>
 
 <?php $i = 1; ?>
-<?php foreach ($karyawan as $row) : ?>
+<?php while ($row=mysqli_fetch_assoc($result)) : ?>
 <tr>
     <td><?php echo $i; ?></td>
     <td>
@@ -46,7 +61,7 @@ $karyawan = query("SELECT * FROM karyawan");
     <td><?php echo $row["jabatan"] ?></td>
 </tr>
 <?php $i++; ?>
-<?php endforeach; ?>
+<?php endwhile; ?>
 </table>
 
 </body>
