@@ -14,9 +14,9 @@ $result = mysqli_query($conn,"SELECT * FROM karyawan");
 // mysqli_fetch_array() // mngembalikan array numerik dan araray associative
 // mysqli_fetch_object()
 
-$karyawan = mysqli_fetch_array($result);
-var_dump($karyawan);
-
+// while( $karyawan = mysqli_fetch_assoc($result)){
+// var_dump($karyawan);
+// }
 
 
 ?>
@@ -45,19 +45,23 @@ var_dump($karyawan);
     <th>Email</th>
     <th>Jabatan</th>
 </tr>
+
+<?php $i = 1; ?>
+<?php while ($row=mysqli_fetch_assoc($result)) : ?>
 <tr>
-    <td>1</td>
+    <td><?php echo $i; ?></td>
     <td>
         <a href="">Ubah Data</a> |
         <a href="">Hapus</a>
     </td>
-    <td><img src="img/yulianto.jpg" alt="" width="50"></td>
-    <td>004</td>
-    <td>Yulianto</td>
-    <td>yulianto@suryakumalaabadi.co.id</td>
-    <td>Head of GA Division</td>
+    <td><img src="img/<?php echo $row["foto"] ?> " alt="" width="50"></td>
+    <td><?php echo $row["nik"] ?></td>
+    <td><?php echo $row["nama"] ?></td>
+    <td><?php echo $row["email"]?></td>
+    <td><?php echo $row["jabatan"] ?></td>
 </tr>
-
+<?php $i++; ?>
+<?php endwhile; ?>
 </table>
 
 </body>
