@@ -12,12 +12,13 @@ if(isset($_POST["submit"])){
     $jabatan = $_POST["jabatan"];
     $foto = $_POST["foto"];
 
+
 // query insert data
 $query = "INSERT INTO karyawan VALUES
         ('','$nama','$nik','$email','$jabatan','$foto')";
-        mysqli_query($conn, $query);
+    mysqli_query($conn, $query);
    
-
+}
 ?>
 
 <!DOCTYPE html>
