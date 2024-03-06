@@ -16,8 +16,7 @@ if(isset($_POST["submit"])){
 $query = "INSERT INTO karyawan VALUES
         ('','$nama','$nik','$email','$jabatan','$foto')";
         mysqli_query($conn, $query);
-
-}
+   
 
 ?>
 
